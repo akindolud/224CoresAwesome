@@ -4,6 +4,8 @@
 # To use this file, set the required variables and run using bash in GCP cloud shell
 
 # Create variable name for GCP deployment
+# Enter the project id between the quotes to replace my-project-id before running this bash script
+PROJECT_ID="my-project-id"
 DEPLOYMENT_NAME="test-deployment"
 DEPLOYMENT_ZONE="us-central1-a"
 SLEEP_SECONDS=600
@@ -13,7 +15,7 @@ echo "0. Script running, your deployment will be created in several stages and m
 
 # Set your project to that defined in the DEVSHELL_PROJECT_ID environment variable
 echo "1. Now setting the project to " $DEVSHELL_PROJECT_ID
-gcloud config set project $DEVSHELL_PROJECT_ID
+gcloud config set project $PROJECT_ID
 
 # Enable the following gcloud services
 # 1. compute engine api

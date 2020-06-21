@@ -21,22 +21,17 @@ However, we recommend you use this in Google's Cloud Shell, as it already has th
 
 Enable your GCP project to use the compute engine api by following the instructions provided [here](https://cloud.google.com/apis/docs/getting-started)
 
-Setup the cloud shell to use your GCP project by running the command below, it creates the environment variable ($DEVSHELL_PROJECT_ID) that is used to configure the deployment. Select the right options from the menu presented after running the command.
-
-```bash
-gcloud init
-```
-
 Clone this repository from Github in cloud shell using the command below and run the
 
 ```bash
-git clone https://github.com/elliptikal/224CoresAwesome.git
+git clone https://github.com/akindolud/244CoresAwesome.git
 ```
 
-cd to the directory and run the deploy shell script
+cd to the directory, edit the deploy.sh file to include your project name and then run to deploy
 
 ```bash
 cd 224CoresAwesome/
+nano deploy.sh
 sh deploy.sh
 ```
 

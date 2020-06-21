@@ -30,19 +30,3 @@ mkdir -p $FOAM_RUN
 # Install and setup Gmsh
 sudo apt update
 sudo apt install gmsh
-
-# Install Salome
-wget "https://www.salome-platform.org/downloads/current-version/DownloadDistr?platform=SP.UB18.04&version=9.4.0"
-tar xfz SALOME-9.4.0-CO7-SRC.tgz
-
-cat >> ~/.basrc <<EOF
-export ~/SALOME-9.4.0-CO7-SRC
-EOF
-source $HOME/.bashrc
-
-sudo chmod +x ~/SALOME-9.4.0-CO7-SRC/salome
-
-cat >> ~/.basrc <<EOF
-export PATH="~/SALOME-9.4.0-CO7-SRC/:$PATH"
-EOF
-source $HOME/.bashrc
