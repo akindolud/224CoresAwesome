@@ -5,6 +5,7 @@
 
 # Create variable name for GCP deployment
 DEPLOYMENT_NAME="test-deployment"
+DEPLOYMENT_ZONE="us-central1-a"
 SLEEP_SECONDS=600
 
 # Print a display message to show the shell script is now running
@@ -21,10 +22,11 @@ echo "2. Now enabling the compute and deployment manager services"
 gcloud services enable compute.googleapis.com
 gcloud services enable deploymentmanager.googleapis.com
 
-# Use 'sed' to set the [PROJECT_ID] and [DEPLOYMENT_NAME] in the .yaml config file
+# Use 'sed' to set the [PROJECT_ID] [DEPLOYMENT_NAME] and [DEPLOYMENT_ZONE] in the .yaml config file
 echo "3. Now setting the project ID and deployment name in the your config file"
 sed -i "s/[PROJECT_ID]/$DEVSHELL_PROJECT_ID/g" vmconfig.yaml
 sed -i "s/[DEPLOYMENT_NAME]/$DEPLOYMENT_NAME/g" vmconfig.yaml
+sed -i "s/[DEPLOYMENT_ZONE]/$DEPLOYMENT_ZONE/g" vmconfig.yaml
 
 # Your resources will be deployed on GCP in this step using the specs in the config file
 echo "4. Now deploying your resources on GCP, please wait for it to complete..."
@@ -33,7 +35,7 @@ echo "Deployment complete, showing details"
 gcloud deployment-manager deployments describe $DEPLOYMENT_NAME
 
 # Wait or carryout some actions before deleting deployment
-echo "Sleeping for 15 minutes before deleting resources"
+echo "Sleeping for 10 minutes before deleting resources"
 sleep $SLEEP_SECONDS
 
 # Your resources will be deleted in this section.
