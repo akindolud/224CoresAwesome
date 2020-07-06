@@ -1,12 +1,15 @@
+imports:
+- path: startup.sh
+  name: startup.sh
 resources:
 - type: compute.v1.instance
-  name: [DEPLOYMENT_NAME]-vm
+  name: DEPLOYMENT_NAME-vm
   properties:
     metadata-from-file:
       startup-script: startup.sh
-    zone: [DEPLOYMENT_ZONE]
+    zone: DEPLOYMENT_ZONE
     # Replace [PROJECT_ID] has to be replaced with your project id
-    machineType: https://www.googleapis.com/compute/v1/projects/[PROJECT_ID]/zones/[DEPLOYMENT_ZONE]/machineTypes/f1-micro
+    machineType: https://www.googleapis.com/compute/v1/projects/PROJECT_ID/zones/DEPLOYMENT_ZONE/machineTypes/f1-micro
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -16,7 +19,7 @@ resources:
         sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20200610
     # Replace [PROJECT_ID] has to be replaced with your project id
     networkInterfaces:
-    - network: https://www.googleapis.com/compute/v1/projects/[PROJECT_ID]/global/networks/default
+    - network: https://www.googleapis.com/compute/v1/projects/PROJECT_ID/global/networks/default
       # Access Config required to give the instance a public IP address
       accessConfigs:
       - name: External NAT

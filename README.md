@@ -27,11 +27,18 @@ Clone this repository from Github in cloud shell using the command below and run
 git clone https://github.com/akindolud/244CoresAwesome.git
 ```
 
-cd to the directory, edit the deploy.sh file to include your project name and then run to deploy
+cd to the directory, edit (using nano or your preferred editor) the deploy.sh file to include your project name, and then run to deploy
 
+cd to the deploy directory
 ```bash
-cd 224CoresAwesome/
+cd 224CoresAwesome/deploy/
+```
+Edit deploy.sh using nano
+```bash
 nano deploy.sh
+```
+Deploy using the shell command
+```bash
 sh deploy.sh
 ```
 
